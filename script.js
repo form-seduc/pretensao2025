@@ -6,6 +6,8 @@
       document.getElementById("submit").disabled = true
     }
 
+    const url = 'https://script.google.com/macros/s/AKfycbxlkGzm268klpBOfZI7YYoQdIuHkaLdwfRkAAP-W78gMghhcXRyn4ZprF9b5JV2f5Af/exec'
+
     window.addEventListener("load", function () {
       const form = document.getElementById("form")
       const responseMessage = document.getElementById("responseMessage")
@@ -17,8 +19,7 @@
           data.set(key, value.toUpperCase())
         }
 
-        const action = e.target.action
-        fetch(action, {
+        fetch(url, {
           method: "POST",
           body: data,
         })
@@ -39,23 +40,7 @@
           })
       })
     })
-
-    // Formatting functions
-
-    function formatNum(input) {
-      const value = input.value.replace(/\D/g, "")
-      input.value = value
-    }
-
-    function formatCEP(input) {
-      const value = input.value.replace(/\D/g, "")
-      if (value.length > 5) {
-        input.value = value.slice(0, 5) + "-" + value.slice(5, 8)
-      } else {
-        input.value = value
-      }
-    }
-
+    
     function validateEmail(input) {
         // Regular expression for validating an email address
         const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
