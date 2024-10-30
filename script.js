@@ -56,6 +56,19 @@
       }
     }
 
+    function validateEmail(input) {
+        // Regular expression for validating an email address
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const value = input.value.trim(); // Trim whitespace from input
+
+        // Check if the email matches the pattern
+        if (emailPattern.test(value)) {
+          document.getElementById("email").style.borderColor = ""; // Optional: remove invalid class if using CSS for styling
+        } else {
+          document.getElementById("email").style.borderColor = "#cc0000"; // Optional: add invalid class if using CSS for styling
+        }
+    }
+
     function formatTelefone(input) {
       const value = input.value.replace(/\D/g, "") // Remove non-digit characters
 
