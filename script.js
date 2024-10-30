@@ -54,6 +54,22 @@
         }
     }
 
+    // Formatting functions
+
+    function formatNum(input) {
+      const value = input.value.replace(/\D/g, "")
+      input.value = value
+    }
+
+    function formatCEP(input) {
+      const value = input.value.replace(/\D/g, "")
+      if (value.length > 5) {
+        input.value = value.slice(0, 5) + "-" + value.slice(5, 8)
+      } else {
+        input.value = value
+      }
+    }
+
     function formatTelefone(input) {
       const value = input.value.replace(/\D/g, "") // Remove non-digit characters
 
