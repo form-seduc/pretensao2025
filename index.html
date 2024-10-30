@@ -39,7 +39,7 @@
       <input type="text" name="cpf_responsavel" id="cpf_responsavel" required oninput="formatCPF(this)" />
 
       <label for="email">Email</label>
-      <input type="email" name="email" id="email" required />
+      <input type="email" name="email" id="email" required onchange="validateEmail(this)" />
 
       <label for="telefone">Telefone</label>
       <input type="tel" name="telefone" id="telefone" maxlength="14" required oninput="formatTelefone(this)" />
