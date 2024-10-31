@@ -90,7 +90,7 @@
     }
 
     #swapForm {
-      width: 35%;
+      width: 70%;
       padding: 12px;
       background-color: #4db6ac;
       color: white;
@@ -102,7 +102,7 @@
     }
 
     #swapForm:hover {
-      width: 35%;
+      width: 70%;
       padding: 12px;
       background-color: #3c978e;
       color: white;
