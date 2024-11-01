@@ -348,21 +348,21 @@
 
         // Determina a turma com base na data de nascimento
         if (dob >= maternal2Start && dob <= maternal2End) {
-          turmaInput.value = "Maternal 2"
+          turmaInput.textContent = "Maternal 2"
         } else if (dob >= maternal1Start && dob <= maternal1End) {
-          turmaInput.value = "Maternal 1"
+          turmaInput.textContent = "Maternal 1"
         } else if (dob >= berçario2Start && dob <= berçario2End) {
-          turmaInput.value = "Berçário 2"
+          turmaInput.textContent = "Berçário 2"
         } else if (dob >= berçario1Start && dob <= berçario1End) {
-          turmaInput.value = "Berçário 1"
+          turmaInput.textContent = "Berçário 1"
         } else {
-          turmaInput.value = "" // Limpa se não houver correspondência
+          turmaInput.textContent = "" // Limpa se não houver correspondência
         }
 
         // Atualiza as opções de escolas
         populateSchoolOptions()
       } else {
-        turmaInput.value = "" // Limpa se não houver data
+        turmaInput.textContent = "" // Limpa se não houver data
       }
     }
 
