@@ -413,7 +413,7 @@
     ]
 
     function populateSchoolOptions() {
-      const turmaValue = document.getElementById("turma").value
+      const turmaValue = document.getElementById("turma").textContent
       const selects = [
         document.getElementById("escola"),
         document.getElementById("escola2"),
