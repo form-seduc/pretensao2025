@@ -51,6 +51,7 @@
             marginTop: "15px",
             visibility: "visible",
           })
+            alert(`Formulário enviado com sucesso! Protocolo: ${data.protocol}`)
           responseMessage.textContent = `Formulário enviado com sucesso! Protocolo: ${data.protocol}`
         })
         .catch((error) => {
