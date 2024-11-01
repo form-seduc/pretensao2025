@@ -81,12 +81,10 @@
         <input type="text" name="nome_crianca" id="nome_crianca" required maxlength="60" />
 
         <label for="data_nascimento">Data de Nascimento *</label>
+        <p style="align-text: center;">A data de nascimento da criança deve ser entre 01/04/2021 e 20/07/2024.</p>
         <input type="date" name="data_nascimento" id="data_nascimento" required oninput="updateTurma()" />
-        <p style="align-text: center;">A data de nascimento deve ser entre 01/04/2021 até 20/07/2024.</p>
-
-        <label for="turma">Turma *</label>
-        <input type="text" id="turma" placeholder="" readonly disabled />
-        <p style="align-text: center;">Obs: Esse campo se preenche automaticamente baseado na idade da criança.</p>
+        
+        <p id="turma"></p>
 
         <label id="susLabel" for="cartao_sus">Cartão SUS *</label>
         <input type="text" name="cartao_sus" id="cartao_sus" maxlength="15" required oninput="formatSUS(this)" />
