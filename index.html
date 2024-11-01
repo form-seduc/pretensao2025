@@ -77,15 +77,15 @@
 
 
         <h2>Dados da Criança</h2>
-        <label for="nome_crianca">Nome da Criança *</label>
+        <label for="nome_crianca">Nome Completo da Criança *</label>
         <input type="text" name="nome_crianca" id="nome_crianca" required maxlength="60" />
 
-        <label for="data_nascimento">Data de Nascimento *</label>
+        <label for="data_nascimento">Data de Nascimento da Criança *</label>
         <p style="text-align: center;">A data de nascimento da criança deve ser entre 01/04/2021 e 20/07/2024.</p>
         <p id="turma" style="text-align: center;"></p>
         <input type="date" name="data_nascimento" id="data_nascimento" required oninput="updateTurma()" />
 
-        <label id="susLabel" for="cartao_sus">Cartão SUS *</label>
+        <label id="susLabel" for="cartao_sus">Cartão SUS da Criança *</label>
         <input type="text" name="cartao_sus" id="cartao_sus" maxlength="15" required oninput="formatSUS(this)" />
 
         <h2>Instituições de Escolha</h2>
