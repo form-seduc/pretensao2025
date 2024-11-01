@@ -51,7 +51,7 @@
         <input type="text" name="nome_responsavel" id="nome_responsavel" required maxlength="60" />
 
         <label id="cpfLabel" for="cpf_responsavel">CPF do Responsável *</label>
-        <input type="text" name="cpf_responsavel" id="cpf_responsavel" required oninput="formatCPF(this)" />
+        <input type="text" name="cpf_responsavel" id="cpf_responsavel" required oninput="formatCPF(this)" maxlength="14" />
 
         <label id="emailLabel" for="email">Email *</label>
         <input type="email" name="email" id="email" required oninput="validateEmail(this)" />
