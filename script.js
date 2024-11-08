@@ -11,7 +11,7 @@
       document.getElementById("escola3").disabled = true;
     }
 
-    const url = 'https://script.google.com/macros/s/AKfycbxlkGzm268klpBOfZI7YYoQdIuHkaLdwfRkAAP-W78gMghhcXRyn4ZprF9b5JV2f5Af/exec'
+    const url = 'https://script.google.com/macros/s/AKfycbx2bMVJR4-HuOoOUmnyAXF6EjVD6hLvp7UCp53Np3T2iFV9sqlx6uGV-0kjI_I8WCPN/exec'
 
     window.addEventListener("load", function () {
       const form = document.getElementById("form")
@@ -77,12 +77,20 @@
       const formMessage = document.getElementById("mensagemProtocolo")
       const inputProtocolo = document.getElementById("inputProtocolo")
       const protocolBtn = document.getElementById("submitProtocolo")
+      const table = document.getElementById("tabelaResposta");
+      const tableBody = document.getElementById("bodyTabela")
       formProtocolo.addEventListener("submit", function(e) {
         e.preventDefault();
         startLoading(protocolBtn);
-        const num = inputProtocolo.value;
-        
-        fetch(url + "?protocol=" + num)
+        const cpf = inputProtocolo.value.replace(/[.\-]/g, '');
+        formMessage.style.visibility = "hidden";
+        formMessage.textContent = "";
+
+        // Clear and hide the table before each new search
+        tableBody.innerHTML = '';
+        table.style.display = "none";
+
+        fetch(url + "?cpf=" + cpf)
           .then(response => {
             if(!response.ok) {
               throw new Error('Network repsonse was not ok');
@@ -93,14 +101,37 @@
             endLoading(protocolBtn);
             const bool = Boolean(data.result);
             if(bool) {
+              table.style.display = "block";
               document.getElementById("formProtocolo").reset();
               document.getElementById("submitProtocolo").disabled = true;
-              formMessage.textContent = `O Aluno do Protocolo ${num} encontra-se cadastrado no sistema.`
-              Object.assign(formMessage.style, {
-                color: "green",
-                textAlign: "center",
-                visibility: "visible",
-              })
+              tableBody.innerHTML = ''; // Clear existing rows
+              data.data.forEach(item => {
+                let row = tableBody.insertRow();
+                let cellProtocol = row.insertCell();
+                let cellName = row.insertCell();
+                let cellChild = row.insertCell();
+                let cellFirstOption = row.insertCell();
+                let cellSecondOption = row.insertCell();
+                let cellThirdOption = row.insertCell();
+
+                cellProtocol.textContent = `${item[0]}`;
+                cellProtocol.setAttribute('data-label', 'Protocolo');
+
+                cellName.textContent = `${item[1]}`;
+                cellName.setAttribute('data-label', 'Nome do Responsável');
+
+                cellChild.textContent = `${item[2]}`;
+                cellChild.setAttribute('data-label', 'Nome da Criança');
+
+                cellFirstOption.textContent = `${item[3]}`;
+                cellFirstOption.setAttribute('data-label', '1ª Opção');
+
+                cellSecondOption.textContent = `${item[4]}`;
+                cellSecondOption.setAttribute('data-label', '2ª Opção');
+
+                cellThirdOption.textContent = `${item[5]}`;
+                cellThirdOption.setAttribute('data-label', '3ª Opção');
+              });
             } else {
               document.getElementById("formProtocolo").reset();
               document.getElementById("submitProtocolo").disabled = true;
@@ -170,11 +201,6 @@
     // Formatting functions
 
     function formatNum(input) {
-      const value = input.value.replace(/\D/g, "")
-      input.value = value
-    }
-
-    function formatProtocol(input) {
       const value = input.value.replace(/\D/g, "")
       input.value = value
     }
@@ -277,6 +303,47 @@
           errorMessage(inputs, true);
         }
         document.getElementById("cpf_responsavel").style.borderColor = "";
+      } else {
+        // If not 11 digits, just show the raw value
+        input.value = value;
+        if (input.value.length !== 11) {
+          errorMessage(inputs, false);
+        }
+      }
+    }
+
+    function formatProtocol(input) {
+      const value = input.value.replace(/\D/g, "") // Remove non-digit characters
+      const inputs = {
+        input: document.getElementById('inputProtocolo'),
+        label: document.getElementById('labelProtocolo')
+      };
+
+      // Validate CPF length
+      if (value.length > 11) {
+        input.value = value.slice(0, 11) // Limit to 11 digits
+        return
+      }
+
+      // Format the CPF
+      if (value.length === 11) {
+        input.value =
+          value.slice(0, 3) +
+          "." +
+          value.slice(3, 6) +
+          "." +
+          value.slice(6, 9) +
+          "-" +
+          value.slice(9)
+
+        // Validate the CPF
+        if (!isValidCPF(value)) {
+          alert("CPF inválido!") // You can change this to whatever feedback you prefer
+          input.value = "" // Clear the input if invalid
+        } else {
+          errorMessage(inputs, true);
+        }
+        inputs.input.style.borderColor = "";
       } else {
         // If not 11 digits, just show the raw value
         input.value = value;
@@ -518,10 +585,11 @@
 
     function updateSubmitButton() {
       const allFilledForm1 = [...inputsForm1].every((input) => input.value);
-      const hasGenError = [...inputsForm1].some((input) => input.classList.contains("genError"));
+      const hasGenError1 = [...inputsForm1].some((input) => input.classList.contains("genError"));
       const allFilledForm2 = [...inputsForm2].every((input) => input.value);
-      document.getElementById("submit").disabled = !allFilledForm1 || hasGenError;
-      document.getElementById("submitProtocolo").disabled = !allFilledForm2;
+      const hasGenError2 = [...inputsForm2].some((input) => input.classList.contains("genError"));
+      document.getElementById("submit").disabled = !allFilledForm1 || hasGenError1;
+      document.getElementById("submitProtocolo").disabled = !allFilledForm2 || hasGenError2;
     }
 
     document.getElementById("swapForm").addEventListener("click", swapForm);
