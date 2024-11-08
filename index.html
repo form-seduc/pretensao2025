@@ -32,13 +32,27 @@
     </div>
     <div id="divProtocolo" style="display: none;">
       <form id="formProtocolo">
-        <h2>Busca Protocolo</h2>
-        <p style="text-align: center;">Digite o número de protocolo para verificar o cadastro.</p>
-        <label for="inputProtocolo">Número do Protocolo *</label>
-        <input type="text" name="inputProtocolo" id="inputProtocolo" required maxlength="6" oninput="formatProtocol(this)" />
-        <input type="submit" id="submitProtocolo" value="Enviar" disabled />
+        <h2>Busca de Cadastro por CPF</h2>
+        <p style="text-align: center;">Digite o número do CPF utilizado para verificar o cadastro.</p>
+        <label id="labelProtocolo" for="inputProtocolo">CPF *</label>
+        <input type="text" name="inputProtocolo" id="inputProtocolo" required oninput="formatProtocol(this)" maxlength="14" />
+        <input type="submit" id="submitProtocolo" value="Buscar" disabled />
         <div>
           <p id="mensagemProtocolo" style="visibility: hidden;"></p>
+          <table id="tabelaResposta" style="display: none;">
+            <thead id="headTabela">
+              <tr id="headerTabela">
+                <th class="headerText">Protocolo</th>
+                <th class="headerText">Nome do Responsável</th>
+                <th class="headerText">Nome da Criança</th>
+                <th class="headerText">Primeira Opção</th>
+                <th class="headerText">Segunda Opção</th>
+                <th class="headerText">Terceira Opção</th>
+              </tr>
+            </thead>
+            <tbody id="bodyTabela">
+            </tbody>
+          </table>
           <h1 id="protocoloProtocolo"></h1>
         </div>
       </form>

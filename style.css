@@ -1,187 +1,265 @@
-    body {
-      font-family: "Arial Rounded MT Bold", sans-serif;
-      background-color: #e0f7fa;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 0;
-      padding: 20px;
-    }
+body {
+  font-family: "Arial Rounded MT Bold", sans-serif;
+  background-color: #e0f7fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 20px;
+}
 
-    .container {
-      max-width: 600px;
-      width: 100%;
-      box-sizing: border-box;
-    }
+.container {
+  max-width: 1000px;
+  width: 100%;
+  box-sizing: border-box;
+}
 
-    #form, #formProtocolo,
-    .welcome {
-      background-color: #ffffff;
-      padding: 30px;
-      border-radius: 20px;
-      border: 5px dashed #4db6ac;
-      margin-bottom: 20px;
-      box-sizing: border-box;
-    }
+#form, #formProtocolo,
+.welcome {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  border: 5px dashed #4db6ac;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
 
-    h1,
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #00796b;
-      font-family: "Arial Rounded MT Bold", sans-serif;
-    }
+h1,
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #00796b;
+  font-family: "Arial Rounded MT Bold", sans-serif;
+}
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-      color: #004d40;
-    }
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #004d40;
+}
 
-    input[type="text"],
-    input[type="email"],
-    input[type="date"],
-    input[type="number"],
-    input[type="tel"],
-    select {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 2px solid #4db6ac;
-      border-radius: 10px;
-      font-size: 16px;
-      box-sizing: border-box;
-      transition: border-color 0.3s;
-    }
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+input[type="tel"],
+select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #4db6ac;
+  border-radius: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
 
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    input[type="date"]:focus,
-    input[type="number"]:focus,
-    input[type="tel"]:focus,
-    select:focus {
-      border-color: #00796b;
-      outline: none;
-    }
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+select:focus {
+  border-color: #00796b;
+  outline: none;
+}
 
-    #submit {
-      width: 100%;
-      padding: 12px;
-      background-color: #ff7043;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 18px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
+#submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff7043;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
-    #submitProtocolo {
-      width: 100%;
-      padding: 12px;
-      background-color: #ff7043;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 18px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
+#submitProtocolo {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff7043;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
-    #swapForm {
-      width: 70%;
-      padding: 12px;
-      background-color: #4db6ac;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 14px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
+#swapForm {
+  width: 70%;
+  padding: 12px;
+  background-color: #4db6ac;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
-    #swapForm:hover {
-      width: 70%;
-      padding: 12px;
-      background-color: #3c978e;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 14px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
+#swapForm:hover {
+  width: 70%;
+  padding: 12px;
+  background-color: #3c978e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
-    #submit:hover {
-      background-color: #ff5722;
-    }
+#submit:hover {
+  background-color: #ff5722;
+}
 
-    #submitProtocolo:hover {
-      background-color: #ff5722;
-    }
+#submitProtocolo:hover {
+  background-color: #ff5722;
+}
 
-    #submit:disabled {
-      background-color: #ccc;
-      color: #666;
-      cursor: not-allowed;
-      opacity: 0.7;
-    }
+#submit:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
 
-    .loading {
-      pointer-events: none; /* Desabilitar interações */
-    }
-    
-    .spinner {
-      border: 2px solid white; /* Cor da borda do spinner */
-      border-top: 2px solid transparent; /* Parte superior transparente */
-      border-radius: 50%;
-      width: 20px; /* Tamanho do spinner */
-      height: 20px;
-      animation: spin 1s linear infinite; /* Animação de rotação */
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%); /* Centralizar o spinner */
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
+.loading {
+  pointer-events: none; /* Desabilitar interações */
+}
 
-    #submitProtocolo:disabled {
-      background-color: #ccc;
-      color: #666;
-      cursor: not-allowed;
-      opacity: 0.7;
-    }
+.spinner {
+  border: 2px solid white; /* Cor da borda do spinner */
+  border-top: 2px solid transparent; /* Parte superior transparente */
+  border-radius: 50%;
+  width: 20px; /* Tamanho do spinner */
+  height: 20px;
+  animation: spin 1s linear infinite; /* Animação de rotação */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Centralizar o spinner */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#submitProtocolo:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
 
 
-    .separator {
-      border: none;
-      height: 2px;
-      background-color: #4db6ac;
-      margin: 20px 0;
-    }
+.separator {
+  border: none;
+  height: 2px;
+  background-color: #4db6ac;
+  margin: 20px 0;
+}
 
-    .clearfix::after {
-      content: "";
-      clear: both;
-      display: table;
-      align-self: center;
-    }
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+  align-self: center;
+}
 
-    .genError {
-      border-color: #cc0000 !important;
-      color: #cc0000 !important;
-    }
+.genError {
+  border-color: #cc0000 !important;
+  color: #cc0000 !important;
+}
 
-    /* Responsive design */
-    @media (max-width: 768px) {
+/* Responsive design */
+@media (max-width: 768px) {
 
-      #form,
-      .welcome {
-        padding: 20px;
-      }
-    }
+  #form,
+  .welcome {
+    padding: 20px;
+  }
+}
+
+#tabelaResposta {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#tabelaResposta th,
+#tabelaResposta td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#tabelaResposta th {
+  background-color: #4db6ac;
+  color: white;
+  font-weight: bold;
+}
+
+#tabelaResposta tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#tabelaResposta tr:hover {
+  background-color: #e9e9e9;
+}
+
+@media screen and (max-width: 600px) {
+  #tabelaResposta {
+    font-size: 10px;
+  }
+
+  #tabelaResposta th,
+  #tabelaResposta td {
+    padding: 8px;
+  }
+
+  #tabelaResposta,
+  #tabelaResposta thead,
+  #tabelaResposta tbody,
+  #tabelaResposta th,
+  #tabelaResposta td,
+  #tabelaResposta tr {
+    display: block;
+  }
+
+  #tabelaResposta thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  #tabelaResposta tr {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+
+  #tabelaResposta td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  #tabelaResposta td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    content: attr(data-label);
+    font-weight: bold;
+  }
+}
