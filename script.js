@@ -100,6 +100,7 @@
           .then(data => {
             endLoading(protocolBtn);
             const bool = Boolean(data.result);
+            console.log(data.result);
             if(bool) {
               table.style.display = "block";
               document.getElementById("formProtocolo").reset();
